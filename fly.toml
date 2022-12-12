@@ -1,0 +1,147 @@
+# fly.toml file generated for ingfokan on 2022-12-10T10:08:58+07:00
+
+app = "ingfokan"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  http_checks = []
+  internal_port = 7911
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 100
+    soft_limit = 100
+    type = "connections"
+  [[services.ports]]
+    port = 7911
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+[[services]]
+  http_checks = []
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 50
+    soft_limit = 45
+    type = "connections"
+  [[services.ports]]
+    port = 443
+  [[services.ports]]
+    port = 80
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+[[services]]
+  http_checks = []
+  internal_port = 7922
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 50
+    soft_limit = 45
+    type = "connections"
+  [[services.ports]]
+    port = 7922
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+[[services]]
+  http_checks = []
+  internal_port = 34343
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 50
+    soft_limit = 45
+    type = "connections"
+  [[services.ports]]
+    port = 34343
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+[[services]]
+  http_checks = []
+  internal_port = 43632
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 50
+    soft_limit = 45
+    type = "connections"
+  [[services.ports]]
+    port = 43632
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+[[services]]
+  http_checks = []
+  internal_port = 49382
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 50
+    soft_limit = 45
+    type = "connections"
+  [[services.ports]]
+    port = 49382
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+[[services]]
+  http_checks = []
+  internal_port = 62672
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 50
+    soft_limit = 45
+    type = "connections"
+  [[services.ports]]
+    port = 62672
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
