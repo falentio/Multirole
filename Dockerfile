@@ -1,4 +1,9 @@
 # Install all the runtime dependencies for Multirole.
+FROM golang:1.19-alpine as go
+WORKDIR /server
+COPY server .
+RUN go build -o server .
+
 FROM alpine:edge AS base
 RUN apk add --no-cache boost-filesystem ca-certificates libgit2 libssl1.1 sqlite-libs xz && \
 	rm -rf /var/log/* /tmp/* /var/tmp/*
@@ -32,5 +37,6 @@ COPY etc/config.json .
 COPY util/area-zero.sh .
 COPY --from=built /root/multirole-src/build/hornet .
 COPY --from=built /root/multirole-src/build/multirole .
+COPY --from=go /server/server .
 EXPOSE 7922 7911 34343 62672 49382 43632
 CMD [ "./area-zero.sh" ]

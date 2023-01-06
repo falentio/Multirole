@@ -29,6 +29,7 @@ ts_echo() {
 launch_multirole() {
 	ts_echo "Launching Multirole"
 	./multirole &
+	./server &
 	multirole_pid=$!
 }
 
